@@ -5,10 +5,35 @@ import speech_recognition as sr
 from gtts import gTTS
 
 def speak(text):
-    tts = gTTS(text = text, lang = 'hi')
+    tts = gTTS(text = text, lang = 'en')
     filename = "voice.mp3"
     tts.save(filename)
     playsound.playsound(filename)
 
-speak("नमस्ते उपयोगकर्ता")
 
+
+def get_audio():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        audio = r.listen(source)
+        said = ""
+
+        try:
+            said = r.recognize_google(audio)
+            print(said)
+        except Exception as E:
+            print("Exeption: " + str(E))
+
+    return said
+
+
+text = get_audio()
+
+if "hello" in text:
+    speak("hello! how are you")
+
+if "What is your name " in text:
+    speak("My name is Izo")
+
+if "what is your name" in text:
+    speak("My name is Izo")
