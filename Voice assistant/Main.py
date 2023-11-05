@@ -27,13 +27,18 @@ def get_audio():
     return said
 
 
-text = get_audio()
+#text = get_audio()
 
-if "hello" in text:
-    speak("hello! how are you")
+#if "hello" in text:
+ #   speak("hello! how are you")
 
-if "What is your name " in text:
-    speak("My name is Izo")
+#if "What is your name " in text:
+ #   speak("My name is Izo")
 
-if "what is your name" in text:
-    speak("My name is Izo")
+#if "what is your name" in text:
+ #   speak("My name is Izo")
+
+import quickstart
+
+if __name__ == '__main__':
+    quickstart.get_events(int(input("Enter No. of events to be searched")), quickstart.service)
